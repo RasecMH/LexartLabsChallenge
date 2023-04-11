@@ -1,0 +1,14 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "LexartLabs FullStack test",
+  "main": "src/server.ts",
+  "scripts": {
+    "test": "mocha -r ts-node/register tests/unit/**/*.test.ts --exit"
+  },
+  "author": "Cesar Holanda",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.0.4"
+  }
+}
