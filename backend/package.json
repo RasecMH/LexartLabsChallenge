@@ -2,7 +2,7 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "LexartLabs FullStack test",
-  "main": "./dist/server.js",
+  "main": "./dist/src/server.js",
   "scripts": {
     "build": "npx -y tsc",
     "dev": "ts-node-dev src/server.ts",
