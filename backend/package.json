@@ -7,7 +7,7 @@
     "build": "npx -y tsc",
     "dev": "ts-node-dev src/server.ts",
     "prestart": "npm run build",
-    "start": "node ./dist/server.js",
+    "start": "node ./dist/src/server.js",
     "lint": "eslint . --ext .js, .jsx, .ts, .tsx",
     "test": "mocha -r ts-node/register tests/unit/**/*.test.ts --exit",
     "test:coverage": "nyc npm test",
