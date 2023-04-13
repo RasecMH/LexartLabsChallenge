@@ -1,5 +1,7 @@
+import { IProduct } from '../../interfaces/IProduct';
+
 export default class Product {
-  private id: string | undefined;
+  private id?: string | undefined;
   private image: string;
   private description: string;
   private category: string;
@@ -7,22 +9,14 @@ export default class Product {
   private store: string;
   private url: string;
 
-  constructor(
-    id: string | undefined,
-    image: string,
-    description: string,
-    category: string,
-    price: number,
-    store: string,
-    url: string
-  ) {
-    this.id = id;
-    this.image = image;
-    this.description = description;
-    this.category = category;
-    this.price = price;
-    this.store = store;
-    this.url = url;
+  constructor(product: IProduct) {
+    this.id = product.id;
+    this.image = product.image;
+    this.description = product.description;
+    this.category = product.category;
+    this.price = product.price;
+    this.store = product.store;
+    this.url = product.url;
   }
 
   public setId(id: string) {
