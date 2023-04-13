@@ -8,9 +8,7 @@ module.exports = {
     "**/*.d.ts"
   ],
   "include": [
-    "src/Models",
-    "src/Services",
-    "src/Controllers",
+    "src/services",
   ],
   "reporter": [
     "text",
