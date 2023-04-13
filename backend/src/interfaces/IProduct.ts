@@ -1,4 +1,5 @@
 export interface IProduct {
+  id?: string | undefined;
   image: string;
   description: string;
   category: string;
