@@ -32,7 +32,7 @@ describe('It should return the searched product list', function () {
     const params = {
       query: 'branca',
       category: 'geladeira',
-      store: 'all',
+      store: 'Todas',
     };
 
     const service = new SearchProductsService(reqSchema);
@@ -95,7 +95,7 @@ describe('It should return the searched product list', function () {
     const params = {
       query: 'branca',
       category: 'geladeira',
-      store: 'Buscape',
+      store: 'Buscapé',
     };
 
     const service = new SearchProductsService(reqSchema);
@@ -112,7 +112,7 @@ describe('It should return the searched product list', function () {
     const params = {
       query: 'branca',
       category: 'geladeira',
-      store: 'Buscape',
+      store: 'Buscapé',
     };
 
     const service = new SearchProductsService(reqSchema);
@@ -128,7 +128,7 @@ describe('It should return the searched product list', function () {
     const params = {
       query: 'branca',
       category: 'geladeira',
-      store: 'Buscape',
+      store: 'Buscapé',
     };
 
     const service = new SearchProductsService(reqSchema);

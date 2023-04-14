@@ -26,17 +26,21 @@ export default class SearchProductsService {
     this.validateFields({ query, category, store });
 
     const result: Product[] = [];
-    if (store === 'Mercado Livre' || store === 'all') {
+    if (store === 'Mercado Livre' || store === 'Todas') {
       const MLProducts = await this.getFromMercadoLivre(query, category);
+      console.log(MLProducts[0]);
+
       MLProducts.forEach((item: Product) => result.push(item));
     }
 
-    if (store === 'Buscape' || store === 'all') {
+    if (store === 'Buscapé' || store === 'Todas') {
       const BuscapeProducts = await this.getFromBuscape(query, category);
+      console.log(BuscapeProducts[0]);
+
       BuscapeProducts.forEach((item: Product) => result.push(item));
     }
 
-    return result.filter((item) => item.getDescription().includes(query));
+    return result;
   }
 
   private async getFromMercadoLivre(
@@ -51,7 +55,7 @@ export default class SearchProductsService {
     }
 
     const scraper = new Scraper();
-    const productList = await scraper.MercadoLivreScraper(category);
+    const productList = await scraper.MercadoLivreScraper(query, category);
     if (productList.length > 0) {
       const result = await db.create(productList);
       return result.map((item: IProduct) => this.createProductDomain(item));
@@ -73,7 +77,7 @@ export default class SearchProductsService {
     }
 
     const scraper = new Scraper();
-    const productList = await scraper.BuscapeScraper(category);
+    const productList = await scraper.BuscapeScraper(query, category);
     if (productList.length > 0) {
       const result = await db.create(productList);
       return result.map((item: IProduct) => this.createProductDomain(item));
