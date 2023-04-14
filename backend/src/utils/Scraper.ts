@@ -3,9 +3,13 @@ import { IProduct } from '../interfaces/IProduct';
 import fetcher from './fetcher';
 
 export default class Scraper {
-  public async MercadoLivreScraper(category: string): Promise<IProduct[] | []> {
+  public async MercadoLivreScraper(
+    query: string,
+    category: string
+  ): Promise<IProduct[] | []> {
     const url = 'https://api.mercadolibre.com/sites/MLB/search?q=';
-    const { data } = await fetcher(url, category);
+    const param = `${query}`;
+    const { data } = await fetcher(url, param);
     return data?.results.map((item: any) => {
       return {
         image: item.thumbnail,
@@ -18,9 +22,13 @@ export default class Scraper {
     });
   }
 
-  public async BuscapeScraper(category: string): Promise<IProduct[] | []> {
+  public async BuscapeScraper(
+    query: string,
+    category: string
+  ): Promise<IProduct[] | []> {
     const url = 'https://www.buscape.com.br/search?q=';
-    const { data } = await fetcher(url, category);
+    const param = `${query}`;
+    const { data } = await fetcher(url, param);
     const parsedHtml = load(data);
 
     let productList: IProduct[] = [];
@@ -46,10 +54,10 @@ export default class Scraper {
       if (image && description && price && url) {
         productList[i] = {
           image,
-          description,
+          description: description,
           category: category,
           price: parseFloat(price),
-          store: 'Buscape',
+          store: 'Buscapé',
           url,
         };
       }

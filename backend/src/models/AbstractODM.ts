@@ -20,9 +20,10 @@ abstract class AbstractODM<T> {
     category: string,
     store: string
   ): Promise<T[]> {
-    const queryRegex = new RegExp(`${query}`, 'i');
+    this.schema.index({ description: 'text' });
+    this.model.createIndexes();
     return this.model.find({
-      $and: [{ description: queryRegex }, { category }, { store }],
+      $and: [{ $text: { $search: `${query}` } }, { category }, { store }],
     });
   }
 }
