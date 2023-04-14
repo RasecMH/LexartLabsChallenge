@@ -12,7 +12,8 @@ export default class SearchProductsODM extends AbstractODM<IProduct> {
       store: { type: String, required: true },
       url: { type: String, required: true },
     });
-    schema.index({ description: 'text' });
     super(schema, 'SearchProducts');
+    schema.index({ description: 'text' });
+    this.model.ensureIndexes();
   }
 }

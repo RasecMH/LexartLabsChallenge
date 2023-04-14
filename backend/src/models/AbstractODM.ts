@@ -15,15 +15,9 @@ abstract class AbstractODM<T> {
     return this.model.insertMany(obj);
   }
 
-  public async read(
-    query: string,
-    category: string,
-    store: string
-  ): Promise<T[]> {
-    this.schema.index({ description: 'text' });
-    this.model.createIndexes();
+  public async read(category: string, store: string): Promise<T[]> {
     return this.model.find({
-      $and: [{ $text: { $search: `${query}` } }, { category }, { store }],
+      $and: [{ category }, { store }],
     });
   }
 }

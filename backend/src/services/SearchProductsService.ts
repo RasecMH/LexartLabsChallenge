@@ -28,19 +28,29 @@ export default class SearchProductsService {
     const result: Product[] = [];
     if (store === 'Mercado Livre' || store === 'Todas') {
       const MLProducts = await this.getFromMercadoLivre(query, category);
-      console.log(MLProducts[0]);
 
       MLProducts.forEach((item: Product) => result.push(item));
     }
 
     if (store === 'Buscapé' || store === 'Todas') {
       const BuscapeProducts = await this.getFromBuscape(query, category);
-      console.log(BuscapeProducts[0]);
 
       BuscapeProducts.forEach((item: Product) => result.push(item));
     }
 
     return result;
+  }
+
+  private async getFromDb(query: string, category: string, store: string) {
+    const db = new SearchProductsODM();
+    const dbResults = await db.read(category, store);
+    return dbResults.filter(
+      (item) =>
+        item.description
+          .toLowerCase()
+          .split(' ')
+          .filter((e) => query.split(' ').includes(e)).length
+    );
   }
 
   private async getFromMercadoLivre(
@@ -49,14 +59,16 @@ export default class SearchProductsService {
   ): Promise<Product[] | []> {
     const db = new SearchProductsODM();
 
-    const dbResults = await db.read(query, category, 'Mercado Livre');
+    const dbResults = await this.getFromDb(query, category, 'Mercado Livre');
     if (dbResults.length > 0) {
+      console.log('Mercado Livre db');
       return dbResults.map((item: IProduct) => this.createProductDomain(item));
     }
 
     const scraper = new Scraper();
     const productList = await scraper.MercadoLivreScraper(query, category);
     if (productList.length > 0) {
+      console.log('Mercado Livre scraper');
       const result = await db.create(productList);
       return result.map((item: IProduct) => this.createProductDomain(item));
     }
@@ -70,15 +82,16 @@ export default class SearchProductsService {
   ): Promise<Product[] | []> {
     const db = new SearchProductsODM();
 
-    const dbResults = await db.read(query, category, 'Buscape');
-
+    const dbResults = await this.getFromDb(query, category, 'Buscapé');
     if (dbResults.length > 0) {
+      console.log('Buscapé db');
       return dbResults.map((item: IProduct) => this.createProductDomain(item));
     }
 
     const scraper = new Scraper();
     const productList = await scraper.BuscapeScraper(query, category);
     if (productList.length > 0) {
+      console.log('Buscapé scraper');
       const result = await db.create(productList);
       return result.map((item: IProduct) => this.createProductDomain(item));
     }
