@@ -1,0 +1,20 @@
+[
+  {
+    "id": "validId",
+    "image": "https://i.zst.com.br/thumbs/45/4/15/-850676040.jpg",
+    "description": "Geladeira Brastemp BRM44HB Frost Free Duplex 375 Litros",
+    "category": "geladeira",
+    "price": 2499.89,
+    "store": "Buscape",
+    "url": "https://www.buscape.com.br/geladeira/geladeira-brastemp-brm44hb-frost-free-duplex-375-litros-painel-eletronico?_lc=88&searchterm=geladeira"
+  },
+  {
+    "id": "validId2",
+    "image": "https://i.zst.com.br/thumbs/45/24/b/194270709.jpg",
+    "description": "Geladeira Brastemp BRE57AK Frost Free Inverse 443 Litros cor Inox",
+    "category": "mobile",
+    "price": 4274.65,
+    "store": "Mercado Livre",
+    "url": "https://www.buscape.com.br/geladeira/geladeira-brastemp-bre57ak-frost-free-inverse-443-litros-inox?_lc=88&searchterm=geladeira"
+  }
+]

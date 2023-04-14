@@ -4,17 +4,13 @@ import Input from './Input';
 import Button from './Button';
 
 interface SearchBarProps {
-  onClick: () => void;
+  onClick: (query: string, category: string, store: string) => void;
 }
 
 export default function SearchBar({ onClick }: SearchBarProps) {
   const [webValue, setWebValue] = useState<string>('');
   const [categorieValue, setCategorieValue] = useState<string>('');
   const [inputValue, setInputValue] = useState<string>('');
-
-  console.log(webValue);
-  console.log(categorieValue);
-  console.log(inputValue);
 
   return (
     <div>
@@ -36,7 +32,10 @@ export default function SearchBar({ onClick }: SearchBarProps) {
         value={inputValue}
         onChange={(v) => setInputValue(v)}
       />
-      <Button label='Search' onClick={onClick} />
+      <Button
+        label='Search'
+        onClick={() => onClick(inputValue, categorieValue, webValue)}
+      />
     </div>
   );
 }
