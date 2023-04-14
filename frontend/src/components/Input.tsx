@@ -3,19 +3,18 @@ import React, { useState } from 'react';
 interface InputProps {
   placeholder: string;
   type: string;
+  value: string;
   onChange: (value: string) => void;
 }
 
 export default function Input({
   placeholder,
   type,
+  value,
   onChange,
 }: InputProps): JSX.Element {
-  const [value, setValue] = useState<string>('');
-
   const handleValueChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = event.target.value;
-    setValue(inputValue);
     onChange(inputValue);
   };
 

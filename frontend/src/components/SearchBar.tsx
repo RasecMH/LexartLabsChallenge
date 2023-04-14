@@ -21,16 +21,19 @@ export default function SearchBar({ onClick }: SearchBarProps) {
       <Dropdown
         placeholder='Web'
         options={['Todas', 'Mercado Livre', 'Buscapé']}
+        selectedOption={webValue}
         onChange={(v) => setWebValue(v)}
       />
       <Dropdown
         placeholder='Categorias'
         options={['Geladeira', 'Celular', 'TV']}
+        selectedOption={categorieValue}
         onChange={(v) => setCategorieValue(v)}
       />
       <Input
         placeholder='Pesquisar'
         type='text'
+        value={inputValue}
         onChange={(v) => setInputValue(v)}
       />
       <Button label='Search' onClick={onClick} />

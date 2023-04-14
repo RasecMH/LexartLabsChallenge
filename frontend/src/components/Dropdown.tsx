@@ -3,19 +3,18 @@ import React, { useState } from 'react';
 interface DropdownProps {
   placeholder: string;
   options: string[];
+  selectedOption: string;
   onChange: (selectedOption: string) => void;
 }
 
 export default function Dropdown({
   placeholder,
   options,
+  selectedOption,
   onChange,
 }: DropdownProps): JSX.Element {
-  const [selectedOption, setSelectedOption] = useState<string>('');
-
   const handleOptionChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedValue = event.target.value;
-    setSelectedOption(selectedValue);
     onChange(selectedValue);
   };
 
