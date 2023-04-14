@@ -24,7 +24,7 @@ function App() {
 
     try {
       const { data } = await axios.get(
-        'http://localhost:3001/products/search',
+        'https://lexartlabschallenge-production.up.railway.app/products/search',
         {
           params: {
             query: query.toLowerCase(),
