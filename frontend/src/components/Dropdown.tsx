@@ -11,7 +11,7 @@ export default function Dropdown({
   options,
   onChange,
 }: DropdownProps): JSX.Element {
-  const [selectedOption, setSelectedOption] = useState('');
+  const [selectedOption, setSelectedOption] = useState<string>('');
 
   const handleOptionChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedValue = event.target.value;
