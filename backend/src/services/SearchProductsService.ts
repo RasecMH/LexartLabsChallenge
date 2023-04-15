@@ -61,14 +61,12 @@ export default class SearchProductsService {
 
     const dbResults = await this.getFromDb(query, category, 'Mercado Livre');
     if (dbResults.length > 0) {
-      console.log('Mercado Livre db');
       return dbResults.map((item: IProduct) => this.createProductDomain(item));
     }
 
     const scraper = new Scraper();
     const productList = await scraper.MercadoLivreScraper(query, category);
     if (productList.length > 0) {
-      console.log('Mercado Livre scraper');
       const result = await db.create(productList);
       return result.map((item: IProduct) => this.createProductDomain(item));
     }
@@ -84,14 +82,12 @@ export default class SearchProductsService {
 
     const dbResults = await this.getFromDb(query, category, 'Buscapé');
     if (dbResults.length > 0) {
-      console.log('Buscapé db');
       return dbResults.map((item: IProduct) => this.createProductDomain(item));
     }
 
     const scraper = new Scraper();
     const productList = await scraper.BuscapeScraper(query, category);
     if (productList.length > 0) {
-      console.log('Buscapé scraper');
       const result = await db.create(productList);
       return result.map((item: IProduct) => this.createProductDomain(item));
     }
