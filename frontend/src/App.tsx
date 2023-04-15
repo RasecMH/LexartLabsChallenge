@@ -40,9 +40,8 @@ function App() {
       } else {
         setReturnMessage('Nada encontrado no banco de dados');
       }
-      console.log(data);
     } catch (error) {
-      console.log(error);
+      console.error(error);
       setError('Erro na requisição');
     }
   };

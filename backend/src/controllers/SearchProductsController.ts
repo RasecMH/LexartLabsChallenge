@@ -20,7 +20,6 @@ export default class SearchProductsController {
   public async read() {
     try {
       const { query, category, store } = this.req.query;
-      console.log(query, category, store);
       if (
         typeof query === 'string' &&
         typeof category === 'string' &&
