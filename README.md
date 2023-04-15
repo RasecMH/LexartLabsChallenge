@@ -17,7 +17,7 @@
 
 <h2>Tecnologias utilizadas</h2>
 
-<p>Aplicação foi desenvolvida ultilizando conceitos de SOLID, ODM, DDD e POO</p>
+<p>Aplicação foi desenvolvida ultilizando conceitos de SOLID, ODM, DDD, POO e Mobile First</p>
 
 <h3>Frontend</h3>
 <ul>
