@@ -1,6 +1,6 @@
 # LexartLabs Challenge
 
-<p>Aplicação full stack feita para desafio técnico da LexartLabs.</p>
+<p>Aplicação full stack feita para desafio técnico da LexartLabs onde podemos pesquisar por produtos dentro de categorias das lojas Mercado Livre e Buscapé.</p>
 <p>Link para demo Frontend: https://lexart-labs-challenge.vercel.app</p>
 <p>Link para demo Backend: https://lexartlabschallenge-production.up.railway.app</p>
 <p>Desafios de algoritimos e estrutura de dados se encontram na pasta algorithms-challenges</p>
@@ -34,6 +34,7 @@
     <li>NodeJs</li>
     <li>Express</li>
     <li>MongoDB</li>
+    <li>Chai e Sinon</li>
     <li>Railway</li>
 </ul>
 
