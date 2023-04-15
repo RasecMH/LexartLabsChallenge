@@ -1,4 +1,4 @@
-# LexartLabsTest
+# LexartLabs Challenge
 
 <p>Aplicação full stack feita para desafio técnico da LexartLabs.</p>
 <p>Link para demo Frontend: https://lexart-labs-challenge.vercel.app</p>
